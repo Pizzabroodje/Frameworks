@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/tournamenten', 'TournamentController@index')->name('tournaments.index');
+Route::get('/tournament/{id}', 'TournamentController@show')->name('tournaments.show');
+Route::post('/tournament/{id}', 'TournamentController@sync')->name('tournaments.sync');
