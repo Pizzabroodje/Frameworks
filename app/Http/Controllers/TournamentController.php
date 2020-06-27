@@ -22,14 +22,33 @@ class TournamentController extends Controller
         //get the current time
         $currentTime = new DateTime();
 
-        //get all tournaments, sort them by start_time, and put the tournaments that are over at the end of the list
-        $tournaments = Tournament::all()->sortBy('start_time')->sort(function($tournament) use($currentTime){
-            $endTime = new DateTime($tournament->end_time);
-            if($endTime > $currentTime) {
-                return 1;
-            }
-            return 2;
+        //all tournaments (only sorted by start_time)
+        $unsortedTournaments = Tournament::all()->sortBy('start_time');
+
+        //all started tournaments
+        $startedTournaments = $unsortedTournaments->filter(function ($item, $key) use($currentTime) {
+            $startTime = new DateTime($item->start_time);
+            $endTime = new DateTime($item->end_time);
+            return $startTime < $currentTime && $endTime > $currentTime;
         });
+
+        //all tournaments that haven't started yet
+        $openTournaments = $unsortedTournaments->filter(function ($item, $key) use($currentTime) {
+            $startTime = new DateTime($item->start_time);
+            $endTime = new DateTime($item->end_time);
+            return $startTime > $currentTime && $endTime > $currentTime;
+        });
+
+        //all tournaments that ended
+        $endedTournaments = $unsortedTournaments->filter(function ($item, $key) use($currentTime) {
+            $startTime = new DateTime($item->start_time);
+            $endTime = new DateTime($item->end_time);
+            return $startTime < $currentTime && $endTime < $currentTime;
+        });
+
+        //merge all tournaments again, in order of started, not started, ended
+        $tournaments = $startedTournaments->merge($openTournaments)->merge($endedTournaments);
+
 
         //return the view and pass the tournaments
         return view('tournaments', compact('tournaments'));
