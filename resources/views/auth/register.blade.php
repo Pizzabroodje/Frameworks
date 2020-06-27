@@ -1,7 +1,22 @@
 @extends('layouts.app')
 
+@section('head')
+    <style>
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("{{asset('/images/bg-signup.jpg')}}");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+@endsection
+
 @section('content')
-<div class="container">
+<div class="container mt-3 mt-md-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

@@ -19,6 +19,17 @@
                 <ul class="navbar-nav ml-auto">
                     @if(Auth::check())
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('tournaments.index') }}">Tournamenten</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                            {{ __('Uitloggen') }}
+                            </a>
+                        </li>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     @else
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('login') }}">Inloggen</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('register') }}">Registreren</a></li>
@@ -31,16 +42,16 @@
 
 
 @section('content')
-    <!-- Masthead-->
-    <header class="masthead">
-        <div class="container d-flex h-100 align-items-center">
-            <div class="mx-auto text-center">
-                <h1 class="mx-auto my-0 text-uppercase">999GAMES</h1>
-                <h2 class="text-white-50 mx-auto mt-2 mb-5">Meld je hier aan voor tournamenten en bekijk de tafelindeling</h2>
-                <a class="btn btn-primary js-scroll-trigger" href="{{route('tournaments.index')}}">Begin nu!</a>
-            </div>
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+            <h1 class="mx-auto my-0 text-uppercase">999GAMES</h1>
+            <h2 class="text-white-50 mx-auto mt-2 mb-5">Meld je hier aan voor tournamenten en bekijk de tafelindeling</h2>
+            <a class="btn btn-primary js-scroll-trigger" href="{{route('tournaments.index')}}">Begin nu!</a>
         </div>
-    </header>
+    </div>
+</header>
 
 
 <!-- Footer-->

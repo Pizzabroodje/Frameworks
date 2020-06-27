@@ -2465,6 +2465,7 @@ textarea.form-control {
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 @media (prefers-reduced-motion: reduce) {
   .btn {
     transition: none;
@@ -2984,20 +2985,24 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
 }
 
-.btn-link {
+.btn.btn-link {
+    box-shadow: none !important;
+}
+
+btn-link {
   font-weight: 400;
-  color: #64a19d;
+  color: #64a19d !important;
   text-decoration: none;
 }
 .btn-link:hover {
-  color: #467370;
+  color: #467370 !important;
   text-decoration: underline;
 }
 .btn-link:focus, .btn-link.focus {
   text-decoration: underline;
 }
 .btn-link:disabled, .btn-link.disabled {
-  color: #6c757d;
+  color: #6c757d !important;
   pointer-events: none;
 }
 
@@ -10228,7 +10233,7 @@ body {
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("../images/bg-masthead.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("../images/bg-home.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -10364,3 +10369,4 @@ body {
 .footer {
   padding: 5rem 0;
 }
+

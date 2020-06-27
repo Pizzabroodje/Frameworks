@@ -1,0 +1,57 @@
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #printableArea, #printableArea * {
+        visibility: visible;
+        display:block;
+    }
+
+    .hidden-on-print, .hidden-on-print * {
+        display: none !important;
+    }
+
+    .avoid-break, .avoid-break * {
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        display:inline-block;
+    }
+
+    .table {
+        display:inline-table !important;
+    }
+
+    thead {
+        display: table-header-group !important;
+    }
+
+    tbody {
+        display: table-row-group !important;
+    }
+
+    tr {
+        display: table-row !important;
+    }
+
+    th, td {
+        display: table-cell !important;
+    }
+
+    .tables-row {
+        width: 100%;
+    }
+
+    .print-left {
+        float: left !important;
+        width: 49%;
+    }
+
+    .print-right {
+        float: right !important;
+        width: 49%;
+    }
+
+    @page {size: A4 portrait}
+}

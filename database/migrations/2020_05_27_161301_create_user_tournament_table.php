@@ -16,6 +16,7 @@ class CreateUserTournamentTable extends Migration
         Schema::create('user_tournament', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('tournament_id');
+            $table->unique(['user_id', 'tournament_id']);
             $table->timestamps();
         });
     }

@@ -37,6 +37,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    //the tournaments that a user is registered to
     public function tournaments() {
         return $this->belongsToMany('App\Tournament', 'user_tournament');
     }
