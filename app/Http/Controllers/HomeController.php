@@ -16,11 +16,7 @@ class HomeController extends Controller
 //        $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+    //show the home page
     public function index()
     {
         return view('home');

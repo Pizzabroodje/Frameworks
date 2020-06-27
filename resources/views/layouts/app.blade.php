@@ -16,44 +16,18 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-
-    <!-- Font Awesome icons (free version)-->
+    <!-- Font Awesome icons (free version) -->
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
+
+    <!-- Core theme CSS (includes Bootstrap) -->
+    <link href="{{asset('css/app.css')}}" rel="stylesheet" />
+
+    <!-- Additional CSS -->
     <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
-    <style>
-        body {
-            position: relative;
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("{{asset('/images/bg-auth.jpg')}}");
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
-        }
-    </style>
-
-    <style>
-        html,
-        body {
-            height: 100%;
-        }
-
-        #app {
-            flex: 1 0 auto;
-        }
-
-        #sticky-footer {
-            flex-shrink: 0;
-        }
-    </style>
 
     @yield('head')
 </head>
@@ -118,7 +92,9 @@
         </main>
     </div>
 </body>
+<!-- If the current page is not home -->
 @if (!\Request::is('/'))
+    <!-- Footer -->
     <footer id="sticky-footer" class="py-4 bg-dark text-white-50" style="margin-top: 20px">
         <div class="container text-center">
             <small>Copyright &copy; Daniel den Toom 2020</small>

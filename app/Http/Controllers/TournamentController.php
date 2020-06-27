@@ -16,12 +16,7 @@ class TournamentController extends Controller
         $this->middleware('verified');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     * @throws \Exception
-     */
+    //show all tournaments
     public function index()
     {
         //get the current time
@@ -40,12 +35,7 @@ class TournamentController extends Controller
         return view('tournaments', compact('tournaments'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param Request $id
-     * @return void
-     */
+    //show all tables of a tournament
     public function show(Request $request)
     {
         //get the tournament
