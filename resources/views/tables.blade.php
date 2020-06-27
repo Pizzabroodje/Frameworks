@@ -21,8 +21,10 @@
                     <h1>Tafelindeling {{$tournamentName}}</h1>
                 </div>
             </div>
+
+
             @if(!empty($tables[1]))
-                <div class="row col-12 justify-content-center mt-xl-2 tables-row">
+                <div class="row col-12 justify-content-center mt-xl-2">
                     @for($i = 1; $i <= count($tables); $i++)
                         @if($i%2!==0)
                             <div class="col-lg-4 col-md-6 avoid-break print-left">

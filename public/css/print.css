@@ -1,11 +1,20 @@
 @media print {
+    body {
+        margin: 0;
+        color: #000;
+        background-color: #fff;
+    }
+
     body * {
         visibility: hidden;
     }
 
     #printableArea, #printableArea * {
+        margin-left: 0;
+        margin-right: 0;
         visibility: visible;
         display:block;
+        max-width: 100%;
     }
 
     .hidden-on-print, .hidden-on-print * {
@@ -39,19 +48,15 @@
         display: table-cell !important;
     }
 
-    .tables-row {
-        width: 100%;
-    }
-
     .print-left {
-        float: left !important;
         width: 49%;
+        float: left !important;
     }
 
     .print-right {
-        float: right !important;
         width: 49%;
+        float: right !important;
     }
 
-    @page {size: A4 portrait}
+    @page {size: A4 portrait; margin-top: 50px;}
 }

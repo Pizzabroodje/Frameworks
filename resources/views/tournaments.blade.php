@@ -31,21 +31,21 @@ use App\Http\Controllers\TournamentController;
                                 Einde: {{TournamentController::dutchTimeString(strftime('%A %e %B %Y om %H:%M',strtotime($tournament->end_time)))}}
                             </div>
                             <div class="ml-auto">
-                                <div class="row">
-                                    <span class="ml-auto mr-1"><a class="btn btn-primary" href="{{route('tournaments.show', $tournament->id)}}">Tafelindeling</a></span>
+                                <div class="row justify-content-end">
+                                    <span class="ml-auto mr-1 mt-1"><a class="btn btn-primary" href="{{route('tournaments.show', $tournament->id)}}">Tafelindeling</a></span>
                                     <form action="{{route('tournaments.sync', $tournament->id)}}" method="post">
                                         @csrf
                                         <span>
                                             @if($currentTime < $startTime)
                                                 @if($tournament->users()->where('users.id', '=', Auth::id())->exists())
-                                                    <button class="btn btn-danger" type="submit">Uitschrijven</button>
+                                                    <button class="btn btn-danger mt-1" type="submit">Uitschrijven</button>
                                                 @else
-                                                    <button class="btn btn-success" type="submit">Inschrijven</button>
+                                                    <button class="btn btn-success mt-1" type="submit">Inschrijven</button>
                                                 @endif
                                             @elseif($currentTime > $startTime && $currentTime < $endTime)
-                                                <span><button class="btn btn-secondary" style="cursor: default;" disabled readonly>Gestart</button></span>
+                                                <span><button class="btn btn-secondary mt-1" style="cursor: default;" disabled readonly>Gestart</button></span>
                                             @else
-                                                <span><button class="btn btn-secondary" style="cursor: default;" disabled readonly>Afgelopen</button></span>
+                                                <span><button class="btn btn-secondary mt-1" style="cursor: default;" disabled readonly>Afgelopen</button></span>
                                             @endif
                                         </span>
                                     </form>
