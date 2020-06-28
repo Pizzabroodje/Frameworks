@@ -61,8 +61,16 @@ class TournamentController extends Controller
         $tournament = Tournament::find($request->id);
         //get the tournament name
         $tournamentName = $tournament->name;
-        //get all players of the tournament
-        $players = $tournament->users()->get();
+        //if there's users in the tournament
+        if($tournament->users()->exists()) {
+            //get the players and shuffle with the tournament id as seed for shuffling
+            $players = $tournament->users()->get()->shuffle($tournament->id);
+        //if there's no users in the tournament
+        } else {
+            //still get the empty collection of players to prevent further errors
+            $players = $tournament->users()->get();
+        }
+
         //get the amount of players in the tournament
         $amountOfPlayers = $players->count();
         //calculate the amount of tables needed

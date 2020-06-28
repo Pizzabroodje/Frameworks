@@ -39,6 +39,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     //the tournaments that a user is registered to
     public function tournaments() {
-        return $this->belongsToMany('App\Tournament', 'user_tournament');
+        return $this->belongsToMany('App\Tournament', 'user_tournament')->withTimestamps();
     }
 }
