@@ -194,6 +194,9 @@ class TournamentController extends Controller
     //convert an English time-string to a Dutch time-string
     public static function dutchTimeString($time) {
 
+        //remove all double spaces (to prevent errors with single-digit day-numbers)
+        $time = preg_replace('/\s+/', ' ',$time);
+
         //all the days and there translations
         $days = array(
             "monday"   => "Maandag",
